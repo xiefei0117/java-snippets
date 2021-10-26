@@ -1,9 +1,21 @@
+/**
+ * The Dijkstra class employs the Dijkstra algorithm to calculate the shortest path for a pair of origin and destination based on the classic Dijkstra's algorithm. 
+ * Users will provide the input file on the graph information. The input file will have the following requirements:
+ * <ul>
+ *  <li> Each line includes three comonents. The first is a String value on the origin, the second is a String value on destination, and the third is the double value on distance.
+ *  <li> Each line represents one directed arc between two vertices with distance.
+ *  <li> The three componenets could be delimited by space, comma, and dash. 
+ * </ul> 
+ * @Author: Fei Xie
+ * @Email: xiefei0117@gmail.com
+ */
+
+
 import java.util.Map;
 import java.util.HashMap;
 import java.util.AbstractMap.SimpleEntry;
 import java.util.List;
 import java.util.ArrayList;
-import java.util.ArrayDeque;
 import java.util.PriorityQueue;
 import java.lang.Double;
 import java.io.File;
@@ -14,9 +26,9 @@ import java.lang.NumberFormatException;
 
 
 
-class Dijsktra {
+public class Dijkstra {
 
-    private Dijsktra() {}
+    private Dijkstra() {}
 
     static private Map<String, List<SimpleEntry<String, Double>>> graph;
     static private Map<String, Double> distMap;
@@ -25,7 +37,7 @@ class Dijsktra {
     static private String origin;
     static private String dummy = "dummy";
 
-    private static void generateGraph(String filepath) {
+    public static void generateGraph(String filepath) {
         graph = new HashMap<>();
         
         try {
@@ -107,8 +119,8 @@ class Dijsktra {
         String o = args[1];
         String d = args[2];
         System.out.println("input: " + filename + " " + o + " " + d);
-        Dijsktra.generateGraph(filename);
-        SimpleEntry<Double, List<String>> ans = Dijsktra.calculatePath(o, d);
+        Dijkstra.generateGraph(filename);
+        SimpleEntry<Double, List<String>> ans = Dijkstra.calculatePath(o, d);
         System.out.println("Distance : " + ans.getKey());
         System.out.println("Path : " + ans.getValue());
     }
