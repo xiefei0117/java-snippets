@@ -33,7 +33,7 @@ public class Kosaraju {
             Scanner input = new Scanner(new File(filepath));
             while (input.hasNextLine()) {
                 String line = input.nextLine();
-                String[] items = line.split("\\s+|,|-|;", 3);
+                String[] items = line.split("\\s+|,|-|;", 2);
                 String orig = items[0];
                 String dest = items[1];
 
